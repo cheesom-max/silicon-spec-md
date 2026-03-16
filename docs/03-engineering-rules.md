@@ -34,6 +34,10 @@
 
 ## 필수 패턴
 - ADR이 따로 예외를 허용하지 않는 한 반드시 따라야 하는 패턴.
+- 외부 provider가 걸린 기능은 canonical callback/confirm/webhook 경로를 하나로 유지한다.
+- `scaffolded` 상태를 `integration-ready`처럼 표현하지 않는다.
+- session 읽기 경로와 bootstrap 쓰기 경로를 의도적으로 구분한다.
+- deploy/platform blocker는 구현 완료 후가 아니라 구현 전 문서 단계에서 표면화한다.
 
 ## 금지 패턴
 - 기여자가 피해야 하는 패턴.
@@ -47,6 +51,12 @@
 ## 테스트 규칙
 - 테스트, 증거, 검증에 대한 최소 기여자 의무를 정의한다.
 - 프로젝트 수준의 위험 전략과 종료 기준은 `docs/05-test-strategy.md`에 둔다.
+- 외부 auth/provider 기능은 hosted 환경에서의 실제 round-trip 증거가 없으면 완료로 간주하지 않는다.
+
+## 외부 통합 규칙
+- 외부 provider마다 기술 owner와 운영 owner를 명시한다.
+- redirect URI, callback URL, webhook URL, required scopes, required secrets를 문서에 남긴다.
+- provider enabled 여부와 배포 플랫폼 제약은 기능 구현 전에 확인한다.
 
 ## 리뷰 규칙
 - 작업이 리뷰 준비 완료로 간주되기 전에 반드시 충족해야 하는 조건.

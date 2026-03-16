@@ -49,6 +49,27 @@
 ## 외부 의존성
 - 시스템이 의존하는 서드파티 시스템, 플랫폼, 인프라를 나열한다.
 
+## 외부 의존성 준비 상태
+- 외부 의존성마다 아래 항목을 표로 정리한다.
+  - 의존성 이름
+  - 기술 owner
+  - 운영 owner
+  - 사용 환경 (`local`, `preview`, `production`)
+  - 필요한 시크릿/설정
+  - callback 또는 webhook URL
+  - 현재 상태 (`assumed`, `validated`, `production-ready`)
+  - 증거 링크
+- 어떤 의존성이 아직 `assumed` 상태인지 명시한다.
+
+## 인증과 세션 경계
+- auth 시작, callback 처리, redirect 결정, session issuance/refresh, post-login bootstrap의 owner를 각각 정한다.
+- callback 경로, confirm 경로, recovery 경로, legacy alias가 있다면 canonical 경로를 하나로 정한다.
+- session 읽기 경로와 bootstrap 쓰기 경로를 어디서 분리하는지 설명한다.
+
+## 환경과 redirect matrix
+- 환경별 호스트와 redirect/callback/webhook URL을 표로 정리한다.
+- 어떤 대시보드 또는 provider에서 어떤 URL을 등록해야 하는지 적는다.
+
 ## 기술 제약
 - 안정적인 기술 한계, 불변 조건, 배포 가정을 기록한다.
 
