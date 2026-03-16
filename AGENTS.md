@@ -1,31 +1,20 @@
 # AGENTS Guide
 
 ## Purpose
-This repository is a docs-first specification workspace for a YouTube thumbnail generation SaaS.
+This repository is currently a docs-first specification workspace.
 Agents working here should treat the numbered files under `docs/` as the primary source of truth.
 Do not assume an application, package manager, CI pipeline, or test harness exists unless it is added later.
 
 ## Current Repository Shape
-The repository currently contains a filled docs set and no executable source tree.
+The repository currently contains only documentation templates and no executable source tree.
 - `docs/00-README.md`: documentation map and writing order
-- `docs/01-product.md`: product intent
-- `docs/02-system-architecture.md`: stable system structure
-- `docs/03-engineering-rules.md`: repository-wide engineering rules
-- `docs/04-features/04-_template/04-spec.md`: reusable feature spec template
-- `docs/04-features/auth-and-onboarding/04-spec.md`: signup, login, and initial credit grant
-- `docs/04-features/thumbnail-generation/04-spec.md`: generation flow and output rules
-- `docs/04-features/thumbnail-revision-and-text-overlay/04-spec.md`: revision flow and manual text overlay
-- `docs/04-features/credits-and-billing/04-spec.md`: credits and Polar billing behavior
-- `docs/05-test-strategy.md`: project-wide verification strategy
-- `docs/06-adrs/06-ADR-0000-template.md`: reusable ADR template
-- `docs/06-adrs/06-ADR-0001-credit-ledger-and-deduction-policy.md`: durable credits policy
-- `docs/06-adrs/06-ADR-0002-no-text-output-enforcement.md`: durable no-text enforcement policy
-- `docs/06-adrs/06-ADR-0003-public-endpoint-security-baseline.md`: durable auth, abuse, and isolation baseline
-- `docs/07-runbooks/07-template.md`: reusable runbook template
-- `docs/07-runbooks/07-polar-webhook-failure-recovery.md`: billing incident recovery
-- `docs/07-runbooks/07-credit-ledger-reconciliation.md`: credit mismatch recovery
-- `docs/07-runbooks/07-auth-session-compromise-response.md`: auth/session security incident response
-- `docs/07-runbooks/07-abuse-and-traffic-spike-response.md`: abuse and traffic-spike response
+- `docs/01-product.md`: product intent template
+- `docs/02-system-architecture.md`: system architecture template
+- `docs/03-engineering-rules.md`: repository-wide engineering rules template
+- `docs/04-features/04-_template/04-spec.md`: feature spec template
+- `docs/05-test-strategy.md`: project-wide test strategy template
+- `docs/06-adrs/06-ADR-0000-template.md`: ADR template
+- `docs/07-runbooks/07-template.md`: runbook template
 
 ## Authoritative Reading Order
 When starting work, read documents in this order:
