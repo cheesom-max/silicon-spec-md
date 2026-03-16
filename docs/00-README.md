@@ -43,6 +43,12 @@
 6. 오래 유지될 기술 결정이 생기면 ADR을 추가한다.
 7. 반복 수행할 운영 절차가 필요하면 런북을 추가한다.
 
+## 단계 게이트
+1. 일반 기능이라도 `docs/01-product.md`, `docs/02-system-architecture.md`, `docs/03-engineering-rules.md`가 프로젝트 맞춤형 상태여야 구현 준비 완료로 본다.
+2. 외부 provider, 인증, 결제, webhook, 배포 플랫폼이 걸린 기능은 관련 `04-spec`, `05-test-strategy`, ADR, 런북까지 갖춰야 구현 준비 완료로 본다.
+3. `scaffolded`, `integration-ready`, `production-ready` 상태를 구분하지 못하면 완료를 주장하지 않는다.
+4. hosted 환경에서 실제 검증 증거가 없는 외부 통합은 완료로 간주하지 않는다.
+
 ## 읽는 순서
 1. 제품 의도를 파악하려면 `docs/01-product.md`를 읽는다.
 2. 기술 맥락을 파악하려면 `docs/02-system-architecture.md`를 읽는다.

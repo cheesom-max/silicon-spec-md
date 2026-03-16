@@ -22,6 +22,7 @@
 - 사용자 또는 API 동작.
 - 수용 기준.
 - 영향 범위와 로컬 위험.
+- 외부 통합 준비 상태와 handoff ownership.
 
 ## 마지막 업데이트 시점
 - 기능 범위, 동작, 수용 기준, 구현 접근이 실질적으로 바뀔 때.
@@ -63,6 +64,22 @@
 ## 영향 받는 영역
 - 영향을 받을 가능성이 높은 코드 경로, 시스템, 데이터, 운영 영역을 적는다.
 
+## 통합 준비 상태
+- 이 기능이 아래 중 어느 상태인지 명시한다.
+  - `scaffolded`
+  - `integration-ready`
+  - `production-ready`
+- 외부 provider가 있다면 어떤 provider가 실제로 검증됐고, 어떤 것은 아직 가정인지 적는다.
+
+## Canonical Entrypoints
+- 이 기능의 canonical URL, callback, confirm, webhook, redirect entrypoint를 적는다.
+- legacy 경로나 alias가 있다면 왜 남아 있는지와 canonical 경로로 어떻게 연결되는지 적는다.
+
+## 외부 provider와 환경 소유권
+- 필요한 provider, 프로젝트, 대시보드, 환경변수, 시크릿을 적는다.
+- provider별 기술 owner와 운영 owner를 적는다.
+- local / preview / production 환경별로 검증 여부를 적는다.
+
 ## 로컬 설계 메모
 - 이 기능에만 특화된 설계 세부만 포함한다.
 - 전역 아키텍처를 다시 설명하지 말고 링크로 연결한다.
@@ -72,9 +89,16 @@
 - 적용 전에 반드시 확인해야 할 전제 조건은 무엇인가?
 - 실행 후 바로 확인해야 할 로그, 지표, 화면, 응답은 무엇인가?
 - 실행 흔적을 남겨야 한다면 어떤 증거를 남겨야 하는가?
+- hosted 환경에서 반드시 남겨야 하는 검증 증거는 무엇인가?
 
 ## 위험과 열린 질문
 - 아직 정리되지 않은 위험, 미지수, 미결정 사항.
 
 ## 검증 계획
 - 이 기능을 어떻게 검증할지 정의한다: 테스트, 수동 QA, 지표, 롤아웃 점검 등.
+- 외부 통합이 있다면 아래를 최소 포함한다.
+  - provider 시작
+  - callback/confirm/webhook 수신
+  - 첫 protected landing
+  - refresh 후 세션 유지
+  - hosted 환경 검증

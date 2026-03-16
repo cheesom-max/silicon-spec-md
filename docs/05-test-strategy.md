@@ -50,6 +50,22 @@
 ## 검증 증거 기대치
 - 변경 사항이 검증되었다고 보기 전에 반드시 존재해야 하는 증거를 정의한다.
 
+## 외부 통합 검증 게이트
+- auth/provider/deploy-sensitive 변경에는 다음 증거를 요구한다.
+  - 실제 provider 시작 화면 도달
+  - callback 또는 confirm 성공
+  - 첫 protected page 로드 성공
+  - 새로고침 후 세션 유지 또는 적절한 만료 처리
+  - hosted preview 또는 production에서의 실제 검증 증거
+
+## 릴리스 게이트
+- 아래 조건이 없으면 `release-ready`로 간주하지 않는다.
+  - 로컬 테스트 통과
+  - 타입/빌드 통과
+  - 환경/시크릿 준비 확인
+  - 플랫폼 blocker 점검
+  - hosted 검증 증거 확보
+
 ## 종료 기준
 - 배포 또는 병합 전에 최소한 충족해야 하는 조건.
 

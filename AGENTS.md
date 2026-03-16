@@ -27,6 +27,19 @@ When starting work, read documents in this order:
 7. Relevant ADRs in `docs/06-adrs/`
 8. Relevant runbooks in `docs/07-runbooks/`
 
+## Stage Gates
+Projects using these templates must distinguish `scaffolded`, `integration-ready`, and `production-ready` states.
+For external auth, billing, webhook, or deploy-coupled work, implementation is not ready until all of the following exist in project-specific form:
+- `docs/01-product.md`
+- `docs/02-system-architecture.md`
+- `docs/03-engineering-rules.md`
+- the relevant feature spec under `docs/04-features/`
+- `docs/05-test-strategy.md`
+- a linked ADR for durable provider/platform decisions
+- a runbook for provider onboarding or deployment-critical procedures
+
+Hosted/provider verification evidence is required before calling such work complete.
+
 If a fact belongs clearly to one file, update that file and link from others instead of duplicating content.
 
 ## Build, Lint, and Test Commands
@@ -122,6 +135,7 @@ If the same content can live in multiple places, pick the single most authoritat
 - When renaming docs, update all internal path references in the docs set.
 - Do not create extra framework-specific docs unless the repo actually gains that framework.
 - Keep templates reusable; avoid filling them with project-specific implementation details unless asked.
+- Strengthen reusable templates by adding ownership, readiness, and verification gates when repeated failure patterns reveal missing process.
 
 ## Cursor and Copilot Rules
 No Cursor rules were found.
