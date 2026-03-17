@@ -1,51 +1,51 @@
-# ADR-0000: 제목
+# ADR-0000: Title
 
-## 목적
-- 하나의 지속되는 아키텍처 결정을 기록한다.
+## Purpose
+- Record one durable architectural decision.
 
-## 사용 순서
-- 6단계: 오래 유지될 기술 결정이 생겼을 때 작성한다.
-- 기능 스펙이나 아키텍처 문서만으로 결정 배경을 보존하기 어려울 때 사용한다.
+## Usage Order
+- Step 6: Write this when a technical decision is expected to last.
+- Use it when the background of a decision is hard to preserve in a feature spec or architecture document alone.
 
-## 대상 독자
-- 어떤 아키텍처 선택이 왜 내려졌는지 이해해야 하는 엔지니어와 AI 에이전트.
+## Intended Audience
+- Engineers and AI agents who need to understand why an architectural choice was made.
 
-## 범위 밖
-- 상시 유지되는 아키텍처 설명.
-- 기능 동작.
-- 운영 절차.
+## Out of Scope
+- Always-current architecture descriptions.
+- Feature behavior.
+- Operational procedures.
 
-## 정본으로 다루는 범위
-- 하나의 지속되는 결정에 대한 맥락, 결정 내용, 상태, 결과, 대안.
+## Canonical Scope
+- The context, decision, status, consequences, and alternatives for one durable decision.
 
-## 마지막 업데이트 시점
-- 결정 상태가 바뀌거나 이 기록이 대체될 때.
+## Last Updated When
+- When the decision status changes or this record is superseded.
 
-## 정본 링크
-- 현재 시스템 구조는 `docs/02-system-architecture.md`를 참고한다.
-- 관련 기능 스펙이나 런북이 있으면 함께 연결한다.
+## Canonical Links
+- For the current system structure, see `docs/02-system-architecture.md`.
+- Link the related feature spec or runbook as needed.
 
-## 상태
-- 제안됨 | 수락됨 | 폐기됨 | 대체됨
+## Status
+- Proposed | Accepted | Deprecated | Superseded
 
-## 맥락
-- 어떤 힘, 제약, 문제 때문에 이 결정을 내리게 되었는가?
+## Context
+- What forces, constraints, or problems led to this decision?
 
-## 결정
-- 무엇을 결정했는가?
+## Decision
+- What was decided?
 
-## 실행 메타데이터
-- 이 결정이 직접 영향을 미치는 범위는 무엇인가?
-- 적용 전에 확인해야 할 전제 조건은 무엇인가?
-- 적용 이후 관찰해야 할 핵심 신호는 무엇인가?
+## Execution Metadata
+- What scope is directly affected by this decision?
+- What prerequisites must be checked before applying it?
+- What key signals should be observed after it is applied?
 
-## 결과
-- 긍정적 결과.
-- 부정적 결과.
-- 이 결정으로 인해 생긴 후속 작업.
+## Consequences
+- Positive consequences.
+- Negative consequences.
+- Follow-up work created by this decision.
 
-## 고려한 대안
-- 어떤 다른 선택지를 검토했고, 왜 채택하지 않았는가?
+## Alternatives Considered
+- What other options were reviewed, and why were they not chosen?
 
-## 대체 관계
-- 필요하면 관련 ADR을 연결한다.
+## Supersession Relationship
+- Link related ADRs when needed.

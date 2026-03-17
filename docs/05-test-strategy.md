@@ -1,62 +1,62 @@
-# 테스트 전략 템플릿
+# Test Strategy Template
 
-## 목적
-- 프로젝트 수준의 품질 및 검증 접근 방식을 정의한다.
+## Purpose
+- Define the project-level quality and verification approach.
 
-## 사용 순서
-- 5단계: 기능 스펙 작성이 시작된 뒤, 프로젝트 전반의 테스트 원칙을 정리할 때 작성한다.
-- 저장소 전체에 공통으로 적용할 검증 기준이 필요할 때 사용한다.
+## Usage Order
+- Step 5: Write this after feature spec work has begun, when project-wide test principles need to be organized.
+- Use it when common verification standards are needed across the repository.
 
-## 대상 독자
-- 이 저장소에서 변경 사항을 어떻게 검증할지 결정해야 하는 엔지니어와 AI 에이전트.
+## Intended Audience
+- Engineers and AI agents who must decide how changes in this repository should be verified.
 
-## 범위 밖
-- 기능별 테스트 케이스.
-- 사고 대응 절차.
-- 제품 우선순위 결정.
-- 상세 아키텍처 설명.
+## Out of Scope
+- Feature-specific test cases.
+- Incident response procedures.
+- Product priority decisions.
+- Detailed architecture explanations.
 
-## 정본으로 다루는 범위
-- 테스트 수준.
-- 품질 위험.
-- 요구되는 검증 증거.
-- 변경 사항의 종료 기준.
+## Canonical Scope
+- Test levels.
+- Quality risks.
+- Required verification evidence.
+- Exit criteria for changes.
 
-## 마지막 업데이트 시점
-- 검증 모델, 테스트 도구, 위험 프로파일, 릴리스 게이트가 바뀔 때.
+## Last Updated When
+- When the verification model, test tools, risk profile, or release gates change.
 
-## 정본 링크
-- 저장소 전반의 기여 규칙은 `docs/03-engineering-rules.md`를 참고한다.
-- 기능 수준 검증 계획은 기능 스펙을 참고한다.
+## Canonical Links
+- For repository-wide contribution rules, see `docs/03-engineering-rules.md`.
+- For feature-level verification plans, see the relevant feature spec.
 
-## 범위
-- 이 전략이 다루는 변경 유형을 정의한다.
+## Scope
+- Define which change types this strategy covers.
 
-## 위험 영역
-- 가장 많은 테스트 노력을 기울여야 하는 실패 유형을 정리한다.
+## Risk Areas
+- Summarize the failure types that deserve the most testing effort.
 
-## 테스트 수준
-- 단위 테스트.
-- 통합 테스트.
-- 종단간 테스트.
-- 수동 QA.
+## Test Levels
+- Unit tests.
+- Integration tests.
+- End-to-end tests.
+- Manual QA.
 
-## 핵심 시나리오
-- 시스템이 진화해도 계속 신뢰성을 유지해야 하는 시나리오.
+## Core Scenarios
+- Scenarios that must stay reliable even as the system evolves.
 
-## 환경과 픽스처
-- 신뢰할 수 있는 테스트를 위해 필요한 환경, 데이터, 픽스처를 적는다.
+## Environments and Fixtures
+- Describe the environments, data, and fixtures required for trustworthy tests.
 
-## 검증 증거 기대치
-- 변경 사항이 검증되었다고 보기 전에 반드시 존재해야 하는 증거를 정의한다.
+## Verification Evidence Expectations
+- Define the evidence that must exist before a change is considered verified.
 
-## 종료 기준
-- 배포 또는 병합 전에 최소한 충족해야 하는 조건.
+## Exit Criteria
+- The minimum conditions that must be satisfied before deployment or merge.
 
-## 운영 신호와 롤백 체크
-- 고위험 변경에서 반드시 확인해야 할 운영 신호는 무엇인가?
-- 이상 징후를 판단하는 기준은 무엇인가?
-- 문제가 생겼을 때 어떤 조건에서 롤백 또는 수정 작업으로 전환할 것인가?
+## Operational Signals and Rollback Checks
+- What operational signals must be checked for high-risk changes?
+- What standard should be used to judge abnormal behavior?
+- When problems happen, under what conditions should the team switch to rollback or follow-up corrective work?
 
-## 공백과 예외
-- 알려진 품질 공백과 정당한 예외를 어떻게 문서화할지 정의한다.
+## Gaps and Exceptions
+- Define how known quality gaps and justified exceptions should be documented.

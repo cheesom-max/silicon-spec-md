@@ -1,62 +1,62 @@
-# 런북 템플릿
+# Runbook Template
 
-## 목적
-- 특정 작업이나 사고에 대해 반복 가능한 운영 절차를 제공한다.
+## Purpose
+- Provide a repeatable operational procedure for a specific task or incident.
 
-## 사용 순서
-- 7단계: 반복 수행해야 하는 운영 절차가 생겼을 때 작성한다.
-- 배포, 장애 대응, 복구처럼 실제 실행 순서가 중요한 작업에 사용한다.
+## Usage Order
+- Step 7: Write this when a repeatable operational procedure is needed.
+- Use it for work where real execution order matters, such as deploys, incident response, or recovery.
 
-## 대상 독자
-- 평시 또는 긴장 상황에서 실제로 절차를 수행하는 사람.
+## Intended Audience
+- The people who actually carry out the procedure during normal operation or under pressure.
 
-## 범위 밖
-- 제품 기획.
-- 아키텍처 판단 근거.
-- 저장소 전반의 엔지니어링 정책.
-- 장문의 트러블슈팅 이론.
+## Out of Scope
+- Product planning.
+- Architectural decision rationale.
+- Repository-wide engineering policy.
+- Long-form troubleshooting theory.
 
-## 정본으로 다루는 범위
-- 트리거 조건.
-- 사전 조건.
-- 실행 절차.
-- 검증, 복구, 에스컬레이션.
+## Canonical Scope
+- Trigger conditions.
+- Preconditions.
+- Execution steps.
+- Verification, recovery, and escalation.
 
-## 마지막 업데이트 시점
-- 운영 절차가 바뀌거나, 도구가 바뀌거나, 실제 실행에서 빈틈이 드러날 때.
+## Last Updated When
+- When the operational procedure changes, a tool changes, or real execution exposes a gap.
 
-## 정본 링크
-- 관련 ADR, 기능 스펙, 대시보드, 아키텍처 문서를 연결한다.
+## Canonical Links
+- Link the related ADR, feature spec, dashboard, and architecture docs.
 
-## 트리거
-- 어떤 사건 또는 조건이 이 런북 사용을 요구하는가?
+## Trigger
+- What event or condition requires using this runbook?
 
-## 사전 조건
-- 실행 전에 반드시 충족되어야 하는 조건은 무엇인가?
+## Preconditions
+- What conditions must be satisfied before execution?
 
-## 필요한 접근 권한과 도구
-- 필요한 계정, 권한, 대시보드, 명령어를 적는다.
+## Required Access and Tools
+- List the required accounts, permissions, dashboards, and commands.
 
-## 실행 메타데이터
-- 이 절차가 적용되는 환경 또는 범위는 어디인가?
-- 실행 전 기록해야 할 기준 상태는 무엇인가?
-- 실행 중 반드시 확인해야 할 신호는 무엇인가?
+## Execution Metadata
+- What environment or scope does this procedure apply to?
+- What baseline state must be recorded before execution?
+- What signals must be checked during execution?
 
-## 절차
-1. 첫 번째 단계.
-2. 두 번째 단계.
-3. 작업이 완료될 때까지 계속한다.
+## Procedure
+1. First step.
+2. Second step.
+3. Continue until the work is complete.
 
-## 검증
-- 절차가 성공했는지 어떻게 확인할 것인가?
+## Verification
+- How do you confirm the procedure succeeded?
 
-## 롤백 또는 복구
-- 절차가 실패하거나 되돌려야 할 때 무엇을 해야 하는가?
+## Rollback or Recovery
+- What should be done if the procedure fails or must be undone?
 
-## 에스컬레이션
-- 언제, 누구에게, 어떤 정보를 가지고 에스컬레이션할 것인가?
+## Escalation
+- When should it be escalated, to whom, and with what information?
 
-## 운영 피드백 루프
-- 이 런북을 실행한 뒤 반드시 남겨야 할 관찰 결과는 무엇인가?
-- 어떤 반복 실패 패턴이 보이면 문서나 절차를 수정해야 하는가?
-- 후속 수정이 필요할 때 어떤 문서까지 업데이트해야 하는가? 예: 기능 스펙, ADR, 테스트 전략.
+## Operational Feedback Loop
+- What observations must be recorded after running this runbook?
+- What repeated failure patterns should trigger a document or procedure update?
+- If follow-up changes are needed, which documents must also be updated? Example: feature spec, ADR, test strategy.

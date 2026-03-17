@@ -1,68 +1,68 @@
-# 문서 지도
+# Document Map
 
-## 목적
-- 독자와 AI 에이전트를 올바른 문서로 안내한다.
-- 각 관심사별로 어떤 파일이 정본인지 정의한다.
+## Purpose
+- Guide readers and AI agents to the correct document.
+- Define which file is canonical for each concern.
 
-## 사용 순서
-- 0단계: 이 문서를 먼저 읽고 전체 문서 구조와 작성 순서를 파악한다.
+## Usage Order
+- Step 0: Read this document first to understand the overall document structure and writing order.
 
-## 대상 독자
-- 이 저장소에서 스펙을 작성, 검토, 구현하는 모든 사람.
+## Intended Audience
+- Anyone writing, reviewing, or implementing specs in this repository.
 
-## 범위 밖
-- 제품 요구사항의 세부 내용.
-- 아키텍처 설명.
-- 코딩 규칙.
-- 기능 단위 결정.
+## Out of Scope
+- Detailed product requirements.
+- Architecture explanations.
+- Coding rules.
+- Feature-level decisions.
 
-## 정본으로 다루는 범위
-- 이 저장소의 문서 지도.
-- 문서 전반의 읽기 순서와 소유 경계.
+## Canonical Scope
+- The document map for this repository.
+- The overall reading order and ownership boundaries across the docs set.
 
-## 정본 링크
-- 이 문서는 아래에 나열된 정본 문서들로 안내한다.
+## Canonical Links
+- This document points to the canonical documents listed below.
 
-## 정본 문서
-| 관심사 | 정본 파일 | 메모 |
+## Canonical Documents
+| Concern | Canonical File | Notes |
 |---|---|---|
-| 제품 의도 | `docs/01-product.md` | 문제, 사용자, 목표, 비목표, 성공 지표 |
-| 시스템 형태 | `docs/02-system-architecture.md` | 컴포넌트, 경계, 흐름, 제약 |
-| 저장소 전반의 엔지니어링 규칙 | `docs/03-engineering-rules.md` | 불변 규칙, 필수 패턴, 금지 패턴 |
-| 기능 동작과 수용 기준 | `docs/04-features/<feature>/04-spec.md` | `docs/04-features/04-_template/04-spec.md`를 시작점으로 사용 |
-| 아키텍처 결정 | `docs/06-adrs/06-ADR-xxxx-title.md` | `docs/06-adrs/06-ADR-0000-template.md`를 복사해서 사용 |
-| 운영 대응 | `docs/07-runbooks/07-<name>.md` | `docs/07-runbooks/07-template.md`를 복사해서 사용 |
-| 테스트 기대치 | `docs/05-test-strategy.md` | 프로젝트 수준의 품질 전략 |
+| Product intent | `docs/01-product.md` | Problem, users, goals, non-goals, success metrics |
+| System shape | `docs/02-system-architecture.md` | Components, boundaries, flows, constraints |
+| Repository-wide engineering rules | `docs/03-engineering-rules.md` | Invariants, required patterns, forbidden patterns |
+| Feature behavior and acceptance criteria | `docs/04-features/<feature>/04-spec.md` | Start from `docs/04-features/04-_template/04-spec.md` |
+| Architectural decisions | `docs/06-adrs/06-ADR-xxxx-title.md` | Copy `docs/06-adrs/06-ADR-0000-template.md` to start |
+| Operational response | `docs/07-runbooks/07-<name>.md` | Copy `docs/07-runbooks/07-template.md` to start |
+| Test expectations | `docs/05-test-strategy.md` | Project-level quality strategy |
 
-## 기본 작성 순서
-1. `docs/01-product.md`를 작성한다.
-2. `docs/02-system-architecture.md`를 작성한다.
-3. `docs/03-engineering-rules.md`를 작성한다.
-4. 기능을 시작할 때마다 `docs/04-features/<feature>/04-spec.md`를 작성한다.
-5. 프로젝트 전반의 검증 원칙이 필요하면 `docs/05-test-strategy.md`를 작성한다.
-6. 오래 유지될 기술 결정이 생기면 ADR을 추가한다.
-7. 반복 수행할 운영 절차가 필요하면 런북을 추가한다.
+## Default Writing Order
+1. Write `docs/01-product.md`.
+2. Write `docs/02-system-architecture.md`.
+3. Write `docs/03-engineering-rules.md`.
+4. Whenever a feature starts, write `docs/04-features/<feature>/04-spec.md`.
+5. Write `docs/05-test-strategy.md` when project-wide verification principles are needed.
+6. Add an ADR when a long-lived technical decision appears.
+7. Add a runbook when a repeatable operational procedure is needed.
 
-## 읽는 순서
-1. 제품 의도를 파악하려면 `docs/01-product.md`를 읽는다.
-2. 기술 맥락을 파악하려면 `docs/02-system-architecture.md`를 읽는다.
-3. 저장소 전반의 규칙을 파악하려면 `docs/03-engineering-rules.md`를 읽는다.
-4. 그다음 관련 기능 스펙, ADR, 런북, 테스트 전략 문서를 읽는다.
+## Reading Order
+1. Read `docs/01-product.md` to understand product intent.
+2. Read `docs/02-system-architecture.md` to understand the technical context.
+3. Read `docs/03-engineering-rules.md` to understand repository-wide rules.
+4. Then read the relevant feature spec, ADR, runbook, and test strategy documents.
 
-## 수정 순서 원칙
-1. 제품 의도가 바뀌면 `docs/01-product.md`부터 수정한다.
-2. 안정적인 기술 구조가 바뀌면 `docs/02-system-architecture.md`를 수정한다.
-3. 저장소 전반의 규칙이 바뀌면 `docs/03-engineering-rules.md`를 수정한다.
-4. 기능을 구현하기 전에 기능 스펙을 생성하거나 갱신한다.
-5. 지속되는 아키텍처 결정이 생기면 ADR을 추가한다.
-6. 반복 가능한 운영 절차가 필요하면 런북을 추가하거나 갱신한다.
+## Update Order Principles
+1. If product intent changes, update `docs/01-product.md` first.
+2. If the stable technical structure changes, update `docs/02-system-architecture.md`.
+3. If repository-wide rules change, update `docs/03-engineering-rules.md`.
+4. Before implementing a feature, create or update its feature spec.
+5. Add an ADR when a lasting architectural decision appears.
+6. Add or update a runbook when a repeatable operational procedure is needed.
 
-## 작성 규칙
-- 모든 문서는 `목적`, `대상 독자`, `범위 밖`, `정본으로 다루는 범위`, `마지막 업데이트 시점`으로 시작한다.
-- 각 문서 상단에 `정본 링크`를 포함한다.
-- 지역적 맥락이 정말 필요할 때만 내용을 다시 설명하고, 기본적으로는 먼저 링크한다.
-- 명백한 단일 소유 문서가 있는 사실은 그 문서에만 두고 다른 문서에서는 링크한다.
-- 한 섹션을 다른 문서에 그대로 붙여 넣을 수 있다면, 그 섹션은 삭제하고 링크로 대체한다.
+## Writing Rules
+- Every document starts with `Purpose`, `Usage Order`, `Intended Audience`, `Out of Scope`, `Canonical Scope`, and `Last Updated When`.
+- Include `Canonical Links` near the top of each document.
+- Re-explain content only when local context is truly necessary; otherwise link first.
+- Keep facts with a clear single owner only in that owner document and link from others.
+- If a section could be copied verbatim into another document, delete it and replace it with a link.
 
-## 마지막 업데이트 시점
-- 정본 문서가 추가, 삭제, 이름 변경되거나 소유 범위가 바뀔 때.
+## Last Updated When
+- When canonical documents are added, removed, renamed, or their ownership boundaries change.

@@ -1,60 +1,60 @@
-# 시스템 아키텍처 템플릿
+# System Architecture Template
 
-## 목적
-- 시스템의 안정적인 기술 구조를 설명한다.
+## Purpose
+- Describe the stable technical structure of the system.
 
-## 사용 순서
-- 2단계: `docs/01-product.md`를 정리한 뒤 작성한다.
-- 기능별 설계를 시작하기 전에 먼저 정리한다.
+## Usage Order
+- Step 2: Write this after `docs/01-product.md` is organized.
+- Define it before starting feature-level design.
 
-## 대상 독자
-- 기능 스펙을 작성하거나 검토하기 전에 아키텍처 맥락이 필요한 엔지니어와 AI 에이전트.
+## Intended Audience
+- Engineers and AI agents who need architectural context before writing or reviewing feature specs.
 
-## 범위 밖
-- 제품 전략.
-- 저장소 전반의 코딩 규칙.
-- 단계별 운영 절차.
-- 전체 결정 이력.
+## Out of Scope
+- Product strategy.
+- Repository-wide coding rules.
+- Step-by-step operational procedures.
+- The full history of decisions.
 
-## 정본으로 다루는 범위
-- 시스템 경계.
-- 주요 컴포넌트.
-- 데이터 및 제어 흐름.
-- 외부 의존성.
-- 안정적인 기술 제약.
+## Canonical Scope
+- System boundaries.
+- Major components.
+- Data and control flow.
+- External dependencies.
+- Stable technical constraints.
 
-## 마지막 업데이트 시점
-- 안정적인 시스템 구조가 바뀌거나, 주요 의존성이 바뀌거나, 컴포넌트 경계가 바뀔 때.
+## Last Updated When
+- When the stable system structure changes, a major dependency changes, or component boundaries change.
 
-## 정본 링크
-- 제품 의도는 `docs/01-product.md`를 참고한다.
-- 저장소 전반의 규칙은 `docs/03-engineering-rules.md`를 참고한다.
-- 결정 기록은 `docs/06-adrs/06-ADR-0000-template.md`를 참고한다.
+## Canonical Links
+- For product intent, see `docs/01-product.md`.
+- For repository-wide rules, see `docs/03-engineering-rules.md`.
+- For decision records, see `docs/06-adrs/06-ADR-0000-template.md`.
 
-## 시스템 맥락
-- 어떤 시스템을 만들고 있으며, 시스템 경계 밖에는 무엇이 있는가?
+## System Context
+- What system are we building, and what is outside its boundary?
 
-## 핵심 컴포넌트
-- 주요 컴포넌트와 각 컴포넌트의 책임을 정리한다.
+## Core Components
+- Summarize the major components and the responsibility of each component.
 
-## 경계와 인터페이스
-- 레이어, 서비스, 모듈 사이의 중요한 경계를 설명한다.
+## Boundaries and Interfaces
+- Describe the important boundaries between layers, services, and modules.
 
-## 데이터 흐름
-- 데이터가 시스템 안에서 어떻게 이동하는지 설명한다.
+## Data Flow
+- Explain how data moves through the system.
 
-## 제어 흐름
-- 요청, 작업, 이벤트가 시스템 안에서 어떻게 이동하는지 설명한다.
+## Control Flow
+- Explain how requests, jobs, and events move through the system.
 
-## 외부 의존성
-- 시스템이 의존하는 서드파티 시스템, 플랫폼, 인프라를 나열한다.
+## External Dependencies
+- List the third-party systems, platforms, and infrastructure the system depends on.
 
-## 기술 제약
-- 안정적인 기술 한계, 불변 조건, 배포 가정을 기록한다.
+## Technical Constraints
+- Record stable technical limits, invariants, and deployment assumptions.
 
-## 현재 상태의 결정
-- 중요한 현재 아키텍처 결정을 요약한다.
-- 전체 결정 이력을 다시 쓰지 말고 ADR로 링크한다.
+## Current-State Decisions
+- Summarize important current architectural decisions.
+- Do not rewrite the full decision history; link to ADRs instead.
 
-## 위험 구간과 핫스팟
-- 앞으로의 기능 스펙에서 특히 주의해야 할 아키텍처 영역을 식별한다.
+## Risk Areas and Hotspots
+- Identify the architectural areas that future feature specs should treat with extra care.

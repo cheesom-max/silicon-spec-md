@@ -1,64 +1,64 @@
-# 제품 템플릿
+# Product Template
 
-## 목적
-- 이 저장소의 안정적인 제품 의도를 정의한다.
+## Purpose
+- Define the stable product intent for this repository.
 
-## 사용 순서
-- 1단계: 프로젝트를 시작할 때 가장 먼저 작성한다.
-- 기능 스펙을 쓰기 전에 반드시 먼저 정리한다.
+## Usage Order
+- Step 1: Write this first when starting the project.
+- It must be organized before writing feature specs.
 
-## 대상 독자
-- 기능 스펙을 읽기 전에 제품 맥락을 알아야 하는 제품, 디자인, 엔지니어링 담당자와 AI 에이전트.
+## Intended Audience
+- Product, design, and engineering contributors and AI agents who need product context before reading feature specs.
 
-## 범위 밖
-- 세부 구현 설계.
-- 기능별 수용 기준.
-- 저장소 전반의 코딩 규칙.
+## Out of Scope
+- Detailed implementation design.
+- Feature-level acceptance criteria.
+- Repository-wide coding rules.
 
-## 정본으로 다루는 범위
-- 문제 정의.
-- 대상 사용자.
-- 목표와 비목표.
-- 성공 지표.
-- 우선순위 테마.
+## Canonical Scope
+- Problem definition.
+- Target users.
+- Goals and non-goals.
+- Success metrics.
+- Priority themes.
 
-## 마지막 업데이트 시점
-- 제품 방향, 대상 사용자, 상위 목표, 비목표가 바뀔 때.
+## Last Updated When
+- When product direction, target users, top-level goals, or non-goals change.
 
-## 정본 링크
-- 기술 구조는 `docs/02-system-architecture.md`를 참고한다.
-- 기능 수준의 동작은 `docs/04-features/04-_template/04-spec.md`를 참고한다.
+## Canonical Links
+- For technical structure, see `docs/02-system-architecture.md`.
+- For feature-level behavior, see `docs/04-features/04-_template/04-spec.md`.
 
-## 문제
-- 이 프로젝트는 어떤 사용자 문제 또는 비즈니스 문제를 해결하는가?
-- 왜 지금 이 문제를 해결할 가치가 있는가?
+## Problem
+- What user or business problem does this project solve?
+- Why is it worth solving this problem now?
 
-## 고객 서사
-- 고객은 어떤 맥락에서 이 문제를 체감하는가?
-- 현재 고객이 겪는 불편, 우회 방법, 실패 경험은 무엇인가?
-- 이 문서가 지향하는 이상적인 고객 경험은 어떤 흐름으로 설명할 수 있는가?
-- 고객이 절대 포기할 수 없는 가치 또는 기대치는 무엇인가?
+## Customer Narrative
+- In what context does the customer feel this problem?
+- What inconvenience, workaround, or failure experience does the customer currently face?
+- What ideal customer experience flow should this document aim for?
+- What value or expectation can the customer never give up?
 
-## 사용자
-- 주요 사용자 집단.
-- 범위에 실질적인 영향을 주는 경우 보조 사용자 집단.
+## Users
+- Primary user groups.
+- Secondary user groups when they materially affect scope.
 
-## 목표
-- 제품이 달성해야 할 구체적인 결과.
+## Goals
+- The concrete outcomes the product must achieve.
 
-## 비목표
-- 범위 확장을 막기 위해 명시적으로 제외하는 결과.
+## Non-Goals
+- The outcomes explicitly excluded to prevent scope expansion.
 
-## 성공 지표
-- 선행 지표.
-- 후행 지표.
-- 가드레일 지표.
+## Success Metrics
+- Leading metrics.
+- Lagging metrics.
+- Guardrail metrics.
 
-## 우선순위 테마
-- 기능 전반의 트레이드오프를 안내하는 소수의 핵심 테마.
+## Priority Themes
+- A small set of core themes that guide trade-offs across features.
 
-## 제약
-- 제품 방향에 영향을 주는 비즈니스, 법률, 운영, 시장 제약.
+## Constraints
+- Business, legal, operational, or market constraints that affect product direction.
 
-## 열린 질문
-- 아직 해결되지 않아 하위 스펙을 막고 있는 제품 질문.
+## Open Questions
+- Product questions that are still unresolved and block downstream specs.

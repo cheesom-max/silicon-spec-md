@@ -74,7 +74,7 @@ The only established conventions come from the current docs set.
 Agents should preserve these conventions unless the repository intentionally changes direction.
 
 ### Language
-- Existing numbered docs are written in Korean.
+- Existing numbered docs are written in English.
 - This root `AGENTS.md` is in English because it is aimed at general-purpose coding agents.
 - When editing existing docs, preserve the dominant language of the file.
 
