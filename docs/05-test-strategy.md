@@ -1,62 +1,107 @@
-# 테스트 전략 템플릿
+---
+doc_type: governance
+status: active
+owner: quality-and-docs-governance
+audience: engineers-reviewers-ai-agents
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
 
-## 목적
-- 프로젝트 수준의 품질 및 검증 접근 방식을 정의한다.
+# Test Strategy
 
-## 사용 순서
-- 5단계: 기능 스펙 작성이 시작된 뒤, 프로젝트 전반의 테스트 원칙을 정리할 때 작성한다.
-- 저장소 전체에 공통으로 적용할 검증 기준이 필요할 때 사용한다.
+## Purpose
+- Define the project-level quality and verification approach for documentation governance work.
+- Specify deterministic evidence requirements for merge readiness.
 
-## 대상 독자
-- 이 저장소에서 변경 사항을 어떻게 검증할지 결정해야 하는 엔지니어와 AI 에이전트.
+## Usage Order
+- Step 5: Read and update this document when defining or reviewing repository-wide verification requirements.
+- Apply it to governance changes, feature-spec changes, and docs validation script updates.
 
-## 범위 밖
-- 기능별 테스트 케이스.
-- 사고 대응 절차.
-- 제품 우선순위 결정.
-- 상세 아키텍처 설명.
+## Intended Audience
+- Engineers, maintainers, reviewers, and AI agents responsible for verification quality.
 
-## 정본으로 다루는 범위
-- 테스트 수준.
-- 품질 위험.
-- 요구되는 검증 증거.
-- 변경 사항의 종료 기준.
+## Out of Scope
+- Product intent and prioritization decisions (owned by `docs/01-product.md`).
+- Architecture boundaries and component design (owned by `docs/02-system-architecture.md`).
+- Repository-wide authoring rules and invariants (owned by `docs/03-engineering-rules.md`).
+- Incident procedures and operational response runbooks (owned by `docs/07-runbooks/`).
 
-## 마지막 업데이트 시점
-- 검증 모델, 테스트 도구, 위험 프로파일, 릴리스 게이트가 바뀔 때.
+## Canonical Scope
+- Project-level verification model and required test levels.
+- Quality-risk framing for documentation governance changes.
+- Required command evidence and output contract for validators.
+- Exit criteria that gate merge readiness.
 
-## 정본 링크
-- 저장소 전반의 기여 규칙은 `docs/03-engineering-rules.md`를 참고한다.
-- 기능 수준 검증 계획은 기능 스펙을 참고한다.
+## Last Updated When
+- When validator command sets, evidence requirements, risk priorities, or exit criteria change.
 
-## 범위
-- 이 전략이 다루는 변경 유형을 정의한다.
+## Canonical Links
+- `docs/00-README.md` for canonical map and ownership boundaries.
+- `docs/03-engineering-rules.md` for repository-wide required and forbidden patterns.
+- `docs/08-document-operations.md` for review cadence and loop stop conditions.
+- Relevant `docs/04-features/<feature>/04-spec.md` file for feature-level acceptance checks.
 
-## 위험 영역
-- 가장 많은 테스트 노력을 기울여야 하는 실패 유형을 정리한다.
+## Scope
+- This strategy covers all numbered governance docs under `docs/` and docs-validation scripts under `scripts/docs/`.
+- It defines minimum verification evidence for documentation governance changes.
+- It applies to both human-authored and AI-authored documentation changes.
 
-## 테스트 수준
-- 단위 테스트.
-- 통합 테스트.
-- 종단간 테스트.
-- 수동 QA.
+## Risk Areas
+- Canonical ownership drift where a durable fact appears in multiple governance docs.
+- Missing or malformed YAML metadata that breaks freshness and ownership checks.
+- Broken canonical links that disconnect readers from source-of-truth documents.
+- Validator regressions that produce non-deterministic output and block auditability.
 
-## 핵심 시나리오
-- 시스템이 진화해도 계속 신뢰성을 유지해야 하는 시나리오.
+## Test Levels
+- Static docs validators (`python3`, standard library only).
+- Cross-document ownership and link integrity checks.
+- Manual review for policy clarity when validator failures indicate ambiguous ownership.
+- Direct file review of changed governance docs when markdown LSP diagnostics are unavailable.
 
-## 환경과 픽스처
-- 신뢰할 수 있는 테스트를 위해 필요한 환경, 데이터, 픽스처를 적는다.
+## Core Scenarios
+- A governance doc update preserves all required sections and metadata keys.
+- Ownership-sensitive changes fail when canonical boundaries are violated.
+- Link-sensitive changes fail when canonical references are broken or missing.
+- Validator contract remains stable: deterministic pass/fail lines and file-specific failures.
 
-## 검증 증거 기대치
-- 변경 사항이 검증되었다고 보기 전에 반드시 존재해야 하는 증거를 정의한다.
+## Environments and Fixtures
+- Local repository checkout with python3 available on `PATH`.
+- No network dependency for validator execution.
+- Test fixtures are the markdown docs under `docs/` and validator scripts under `scripts/docs/`.
+- Evidence artifacts stored under `.sisyphus/evidence/`.
 
-## 종료 기준
-- 배포 또는 병합 전에 최소한 충족해야 하는 조건.
+## Verification Evidence Expectations
+- Save validation evidence under `.sisyphus/evidence/`.
+- Use task-scoped files named `.sisyphus/evidence/task-<n>-<slug>.txt`.
+- Evidence must include executed commands and exact terminal output.
+- Docs validators must follow this exact terminal contract:
+  - Pass output: `PASS: 0 failures`
+  - Fail output first line: `FAIL: <n> failures`
+  - Fail detail lines: one line per failure, prefixed with `- ` and including file path.
+- Required docs validation command set:
+  - `python3 scripts/docs/test_required_sections.py`
+  - `python3 scripts/docs/test_canonical_ownership.py`
+  - `python3 scripts/docs/test_links.py`
+  - `python3 scripts/docs/test_taxonomy_coverage.py`
+  - `python3 scripts/docs/test_metadata_freshness.py`
+  - `python3 scripts/docs/test_orphans.py`
+  - `python3 scripts/docs/test_migration_map.py`
 
-## 운영 신호와 롤백 체크
-- 고위험 변경에서 반드시 확인해야 할 운영 신호는 무엇인가?
-- 이상 징후를 판단하는 기준은 무엇인가?
-- 문제가 생겼을 때 어떤 조건에서 롤백 또는 수정 작업으로 전환할 것인가?
+## Exit Criteria
+- All required docs validation commands pass and end with `PASS: 0 failures`.
+- Evidence file exists in `.sisyphus/evidence/` for the change.
+- No unresolved canonical ownership conflict remains in changed documents.
+- Changed governance docs include required metadata keys and canonical links.
 
-## 공백과 예외
-- 알려진 품질 공백과 정당한 예외를 어떻게 문서화할지 정의한다.
+## Operational Signals and Rollback Checks
+- Signal: validator output contract changes unexpectedly (missing pass/fail prefix).
+- Signal: ownership or required-section checks fail on untouched files after a targeted change.
+- Abnormal standard: any non-deterministic or non-path-specific failure messaging is treated as a verification defect.
+- Rollback trigger: governance edits introduce cross-doc ownership conflicts that cannot be resolved within the current change scope.
+- Follow-up trigger: known validator gaps discovered during review are logged and tracked before merge.
+
+## Gaps and Exceptions
+- Known gaps must be listed in evidence with owning reviewer and remediation target date.
+- Exceptions to required validator execution are temporary and require explicit approval rationale.
+- Exceptions do not waive canonical ownership rules; they only defer specific verification mechanics.

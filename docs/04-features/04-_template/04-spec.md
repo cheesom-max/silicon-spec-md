@@ -1,80 +1,110 @@
-# 기능 스펙 템플릿
+---
+doc_type: feature-spec
+status: draft
+owner: feature-authors
+audience: feature-authors-reviewers
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
 
-## 목적
-- 하나의 기능에 대한 동작, 범위, 수용 기준, 로컬 설계 메모를 정의한다.
+# Feature Spec Template
 
-## 사용 순서
-- 4단계: 기능 구현을 시작하기 전에 작성한다.
-- 새로운 기능마다 이 템플릿을 복사해서 `docs/04-features/<feature>/04-spec.md`로 사용한다.
+## Purpose
+- Define the behavior, scope, acceptance criteria, and local design notes for a single feature.
 
-## 대상 독자
-- 단일 기능을 구현, 검토, 테스트, 승인하는 사람.
+## Usage Order
+- Step 4: Write this before implementation of the feature starts.
+- Copy this template for each new feature and use it as `docs/04-features/<feature>/04-spec.md`.
 
-## 범위 밖
-- 전역 제품 전략.
-- 전체 시스템 아키텍처.
-- 저장소 전반의 규칙.
-- 지속되는 아키텍처 이력.
+## Intended Audience
+- People implementing, reviewing, testing, and approving a single feature.
 
-## 정본으로 다루는 범위
-- 기능 문제 정의.
-- 기능 범위와 비목표.
-- 사용자 또는 API 동작.
-- 수용 기준.
-- 영향 범위와 로컬 위험.
+## Out of Scope
+- Global product strategy.
+- Full-system architecture.
+- Repository-wide rules.
+- Long-lived architectural history.
 
-## 마지막 업데이트 시점
-- 기능 범위, 동작, 수용 기준, 구현 접근이 실질적으로 바뀔 때.
+## Canonical Scope
+- Feature problem definition.
+- Feature scope and non-goals.
+- User-visible or API-visible behavior.
+- Acceptance criteria.
+- Affected areas and local risks.
 
-## 정본 링크
-- 제품 의도는 `docs/01-product.md`를 참고한다.
-- 아키텍처 맥락은 `docs/02-system-architecture.md`를 참고한다.
-- 저장소 전반의 규칙은 `docs/03-engineering-rules.md`를 참고한다.
-- 이 기능이 오래 유지되는 결정에 의존한다면 관련 ADR을 참고한다.
+## Package Boundaries
+- This file is the only canonical owner of feature behavior and acceptance criteria.
+- Use sibling docs only for support context:
+  - `concept.md`: background and domain framing.
+  - `how-to.md`: contributor procedures.
+  - `reference.md`: stable lookup facts.
+  - `examples.md`: illustrative scenarios.
+  - `changes.md`: chronology and release-facing deltas.
+  - `known-issues.md`: unresolved constraints and workarounds.
 
-## 문제
-- 이 기능은 어떤 문제를 해결하는가?
-- 왜 지금 이 기능이 필요한가?
+## Last Updated When
+- When feature scope, behavior, acceptance criteria, or implementation approach changes materially.
 
-## 고객 서사
-- 이 기능이 들어가는 실제 사용자 흐름은 무엇인가?
-- 사용자는 어떤 순간에 이 기능을 필요로 하는가?
-- 기능이 없을 때 사용자가 겪는 대표적인 불편 또는 실패 경험은 무엇인가?
-- 기능이 잘 동작했을 때 사용자가 체감해야 하는 변화는 무엇인가?
+## Canonical Links
+- For product intent, see `docs/01-product.md`.
+- For architectural context, see `docs/02-system-architecture.md`.
+- For repository-wide rules, see `docs/03-engineering-rules.md`.
+- For docs operations and review flow, see `docs/08-document-operations.md`.
+- For controlled vocabulary (`doc_type`, `status`), see `docs/09-glossary.md`.
+- If this feature depends on a long-lived decision, refer to the related ADR.
 
-## 범위
-- 이 기능에 포함되는 내용.
+## Supporting Documents
+- Concept context: `docs/04-features/<feature>/concept.md`
+- Contributor procedure: `docs/04-features/<feature>/how-to.md`
+- Feature reference: `docs/04-features/<feature>/reference.md`
+- Worked examples: `docs/04-features/<feature>/examples.md`
+- Change log: `docs/04-features/<feature>/changes.md`
+- Known issues: `docs/04-features/<feature>/known-issues.md`
 
-## 비목표
-- 이 기능에 명시적으로 포함하지 않는 내용.
+## Problem
+- What problem does this feature solve?
+- Why is this feature needed now?
 
-## 사용자 또는 호출자
-- 누가 이 기능을 사용하는가?
-- 주요 흐름은 무엇인가?
+## Customer Narrative
+- What real user flow does this feature belong to?
+- At what moment does the user need this feature?
+- What representative inconvenience or failure does the user experience without it?
+- What change should the user feel when the feature works well?
 
-## 동작
-- 기대되는 사용자 가시 동작 또는 API 가시 동작을 설명한다.
-- 정확성에 실질적인 영향을 주는 엣지 케이스를 포함한다.
+## Scope
+- What is included in this feature.
 
-## 수용 기준
-- 각 기준을 통과/실패로 판정 가능한 문장으로 작성한다.
-- 구현 세부보다 관찰 가능한 결과를 우선한다.
+## Non-Goals
+- What is explicitly not included in this feature.
 
-## 영향 받는 영역
-- 영향을 받을 가능성이 높은 코드 경로, 시스템, 데이터, 운영 영역을 적는다.
+## User or Caller
+- Who uses this feature?
+- What is the main flow?
 
-## 로컬 설계 메모
-- 이 기능에만 특화된 설계 세부만 포함한다.
-- 전역 아키텍처를 다시 설명하지 말고 링크로 연결한다.
+## Behavior
+- Describe the expected user-visible behavior or API-visible behavior.
+- Include edge cases that materially affect correctness.
 
-## 실행 메타데이터
-- 이 기능 변경의 실행 단위는 무엇인가? 예: 문서, 코드, 데이터, 운영 설정.
-- 적용 전에 반드시 확인해야 할 전제 조건은 무엇인가?
-- 실행 후 바로 확인해야 할 로그, 지표, 화면, 응답은 무엇인가?
-- 실행 흔적을 남겨야 한다면 어떤 증거를 남겨야 하는가?
+## Acceptance Criteria
+- Write each criterion as a statement that can be judged pass/fail.
+- Prefer observable outcomes over implementation details.
 
-## 위험과 열린 질문
-- 아직 정리되지 않은 위험, 미지수, 미결정 사항.
+## Affected Areas
+- Note the code paths, systems, data, or operational areas most likely to be affected.
 
-## 검증 계획
-- 이 기능을 어떻게 검증할지 정의한다: 테스트, 수동 QA, 지표, 롤아웃 점검 등.
+## Local Design Notes
+- Include only design details specific to this feature.
+- Do not re-explain the global architecture; link to it.
+
+## Execution Metadata
+- What is the execution unit for this feature change? Example: document, code, data, operational configuration.
+- What prerequisites must be checked before applying it?
+- What logs, metrics, screens, or responses must be checked immediately after execution?
+- If execution evidence must be left behind, what evidence should be recorded?
+
+## Risks and Open Questions
+- Risks, unknowns, and undecided points that are not yet resolved.
+
+## Verification Plan
+- Define how this feature will be verified: tests, manual QA, metrics, rollout checks, and so on.

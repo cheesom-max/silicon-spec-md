@@ -1,60 +1,99 @@
-# 시스템 아키텍처 템플릿
+---
+doc_type: governance
+status: active
+owner: architecture-and-docs-governance
+audience: engineers-architects-reviewers
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
 
-## 목적
-- 시스템의 안정적인 기술 구조를 설명한다.
+# System Architecture
 
-## 사용 순서
-- 2단계: `docs/01-product.md`를 정리한 뒤 작성한다.
-- 기능별 설계를 시작하기 전에 먼저 정리한다.
+## Purpose
+- Describe the stable technical structure of this documentation system.
+- Define architecture boundaries so policy, behavior, and verification concerns remain separated.
 
-## 대상 독자
-- 기능 스펙을 작성하거나 검토하기 전에 아키텍처 맥락이 필요한 엔지니어와 AI 에이전트.
+## Usage Order
+- Step 2: Read and update this document after product intent is clarified in `docs/01-product.md`.
+- Use this as architectural context before changing repository-wide rules or feature specs.
 
-## 범위 밖
-- 제품 전략.
-- 저장소 전반의 코딩 규칙.
-- 단계별 운영 절차.
-- 전체 결정 이력.
+## Intended Audience
+- Engineers, maintainers, and AI agents who need system-shape context before editing specs.
 
-## 정본으로 다루는 범위
-- 시스템 경계.
-- 주요 컴포넌트.
-- 데이터 및 제어 흐름.
-- 외부 의존성.
-- 안정적인 기술 제약.
+## Out of Scope
+- Product intent, goals, and user outcomes (owned by `docs/01-product.md`).
+- Repository-wide rules and constraints (owned by `docs/03-engineering-rules.md`).
+- Verification gates and test evidence policy (owned by `docs/05-test-strategy.md`).
+- Operational cadence and loop governance (owned by `docs/08-document-operations.md`).
 
-## 마지막 업데이트 시점
-- 안정적인 시스템 구조가 바뀌거나, 주요 의존성이 바뀌거나, 컴포넌트 경계가 바뀔 때.
+## Canonical Scope
+- System boundary for docs authoring, governance, and validation runtime.
+- Major architectural components and interfaces across governance and delivery layers.
+- Data and control flow from authoring input to validated documentation output.
+- External dependency boundaries and non-negotiable technical constraints.
 
-## 정본 링크
-- 제품 의도는 `docs/01-product.md`를 참고한다.
-- 저장소 전반의 규칙은 `docs/03-engineering-rules.md`를 참고한다.
-- 결정 기록은 `docs/06-adrs/06-ADR-0000-template.md`를 참고한다.
+## Last Updated When
+- When component boundaries, runtime assumptions, or interface contracts change.
 
-## 시스템 맥락
-- 어떤 시스템을 만들고 있으며, 시스템 경계 밖에는 무엇이 있는가?
+## Canonical Links
+- `docs/00-README.md` for canonical document map and taxonomy.
+- `docs/01-product.md` for product intent and outcomes.
+- `docs/03-engineering-rules.md` for repository-wide engineering policy.
+- `docs/05-test-strategy.md` for verification expectations.
+- `docs/08-document-operations.md` for operating cadence and review loop policy.
+- `docs/06-adrs/06-ADR-0000-template.md` for durable decision records.
 
-## 핵심 컴포넌트
-- 주요 컴포넌트와 각 컴포넌트의 책임을 정리한다.
+## System Context
+- The system is a docs-first specification workspace that produces authoritative governance and feature documents.
+- In-bound scope: numbered governance docs, feature-package specs, and python3-based validation scripts.
+- Out-of-bound scope: application runtime services, production infrastructure, and user-facing software deployment.
 
-## 경계와 인터페이스
-- 레이어, 서비스, 모듈 사이의 중요한 경계를 설명한다.
+## Core Components
+- Governance control plane (`docs/00` to `docs/09`): durable policy and ownership boundaries.
+- Delivery package taxonomy (`docs/04-features/<feature>/`): feature behavior and supporting artifacts.
+- Validation layer (`scripts/docs/`): deterministic policy checks for structure, ownership, and metadata.
+- Evidence layer (`.sisyphus/evidence/`): command output traces used for review and audit.
 
-## 데이터 흐름
-- 데이터가 시스템 안에서 어떻게 이동하는지 설명한다.
+## Boundaries and Interfaces
+- Product intent interface: `docs/01-product.md` provides goals and constraints consumed by architecture and feature specs.
+- Architecture interface: this document defines stable system shape consumed by engineering rules and feature specs.
+- Rules interface: `docs/03-engineering-rules.md` defines required/forbidden patterns enforced across docs.
+- Verification interface: `docs/05-test-strategy.md` defines what must be validated and evidenced for changes.
+- Operations interface: `docs/08-document-operations.md` defines loop cadence and review role workflow.
 
-## 제어 흐름
-- 요청, 작업, 이벤트가 시스템 안에서 어떻게 이동하는지 설명한다.
+## Data Flow
+- Input: change request or authoring task defines intended documentation update.
+- Transformation: contributor edits canonical owner docs first, then updates non-canonical links.
+- Validation: python3 scripts parse markdown structure and metadata to detect policy violations.
+- Output: passing validator output and evidence artifacts feed review and merge decisions.
 
-## 외부 의존성
-- 시스템이 의존하는 서드파티 시스템, 플랫폼, 인프라를 나열한다.
+## Control Flow
+- Trigger: a governance or feature change request enters authoring workflow.
+- Control gate 1: canonical owner is selected before edits proceed.
+- Control gate 2: required validators run and produce deterministic pass/fail output.
+- Control gate 3: review roles assess content, structure, and freshness before closure.
 
-## 기술 제약
-- 안정적인 기술 한계, 불변 조건, 배포 가정을 기록한다.
+## External Dependencies
+- Python 3 standard library runtime for docs validation scripts.
+- Git repository history for traceability and reviewability.
+- Local CLI tooling for executing validation commands.
+- No package-manager dependency is required for governance validation.
 
-## 현재 상태의 결정
-- 중요한 현재 아키텍처 결정을 요약한다.
-- 전체 결정 이력을 다시 쓰지 말고 ADR로 링크한다.
+## Technical Constraints
+- Canonical governance docs are plain Markdown files with stable numbered paths.
+- Substantive governance docs must include required YAML metadata keys.
+- Validators must run without network dependency and without third-party Python packages.
+- Ownership rules require one canonical source per durable fact.
 
-## 위험 구간과 핫스팟
-- 앞으로의 기능 스펙에서 특히 주의해야 할 아키텍처 영역을 식별한다.
+## Current-State Decisions
+- Decision: maintain a two-layer docs system (governance control plane and feature delivery taxonomy).
+- Decision: keep docs validation in python3 standard library for portability.
+- Decision: enforce canonical ownership via numbered governance docs and link-first referencing.
+- Decision: keep operational loop policy in `docs/08-document-operations.md` instead of duplicating it here.
+
+## Risk Areas and Hotspots
+- Boundary drift between architecture content and repository-wide rules.
+- Duplication of operating-loop policy between this document and `docs/08-document-operations.md`.
+- Metadata inconsistency that can break ownership and freshness validation scripts.
+- Feature-package documents accidentally absorbing governance-level decisions.

@@ -1,64 +1,95 @@
-# 제품 템플릿
+---
+doc_type: governance
+status: active
+owner: product-and-docs-governance
+audience: product-engineering-reviewers
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
 
-## 목적
-- 이 저장소의 안정적인 제품 의도를 정의한다.
+# Product Intent
 
-## 사용 순서
-- 1단계: 프로젝트를 시작할 때 가장 먼저 작성한다.
-- 기능 스펙을 쓰기 전에 반드시 먼저 정리한다.
+## Purpose
+- Define the stable product intent for this docs-first specification repository.
+- Keep product decisions explicit before architecture, rules, and feature specs are authored.
 
-## 대상 독자
-- 기능 스펙을 읽기 전에 제품 맥락을 알아야 하는 제품, 디자인, 엔지니어링 담당자와 AI 에이전트.
+## Usage Order
+- Step 1: Read and update this document before changing `docs/02-system-architecture.md` or any feature spec.
+- Revisit this document whenever goals, users, or success metrics change.
 
-## 범위 밖
-- 세부 구현 설계.
-- 기능별 수용 기준.
-- 저장소 전반의 코딩 규칙.
+## Intended Audience
+- Product owners, documentation maintainers, reviewers, and AI agents defining project direction.
 
-## 정본으로 다루는 범위
-- 문제 정의.
-- 대상 사용자.
-- 목표와 비목표.
-- 성공 지표.
-- 우선순위 테마.
+## Out of Scope
+- System architecture design and component boundaries (owned by `docs/02-system-architecture.md`).
+- Repository-wide engineering and authoring rules (owned by `docs/03-engineering-rules.md`).
+- Verification methods and quality gates (owned by `docs/05-test-strategy.md`).
+- Feature-level behavior and acceptance criteria (owned by `docs/04-features/<feature>/04-spec.md`).
 
-## 마지막 업데이트 시점
-- 제품 방향, 대상 사용자, 상위 목표, 비목표가 바뀔 때.
+## Canonical Scope
+- Product problem framing for this repository.
+- Target users and their core authoring outcomes.
+- Product goals, non-goals, and prioritization themes.
+- Project-level success metrics for documentation quality and usability.
 
-## 정본 링크
-- 기술 구조는 `docs/02-system-architecture.md`를 참고한다.
-- 기능 수준의 동작은 `docs/04-features/04-_template/04-spec.md`를 참고한다.
+## Last Updated When
+- When product direction, users, goals, non-goals, or success metrics change.
 
-## 문제
-- 이 프로젝트는 어떤 사용자 문제 또는 비즈니스 문제를 해결하는가?
-- 왜 지금 이 문제를 해결할 가치가 있는가?
+## Canonical Links
+- `docs/00-README.md` for canonical document map and reading order.
+- `docs/02-system-architecture.md` for system structure and boundaries.
+- `docs/03-engineering-rules.md` for repository-wide rules.
+- `docs/05-test-strategy.md` for verification expectations.
+- `docs/04-features/04-_template/04-spec.md` for feature-level behavior ownership.
 
-## 고객 서사
-- 고객은 어떤 맥락에서 이 문제를 체감하는가?
-- 현재 고객이 겪는 불편, 우회 방법, 실패 경험은 무엇인가?
-- 이 문서가 지향하는 이상적인 고객 경험은 어떤 흐름으로 설명할 수 있는가?
-- 고객이 절대 포기할 수 없는 가치 또는 기대치는 무엇인가?
+## Problem
+- Documentation quality degrades when durable decisions are scattered, duplicated, or owned by ambiguous files.
+- Contributors need a deterministic governance model so human and AI authors can produce consistent specs before implementation.
+- Solving this now lowers rework, review overhead, and decision drift as the docs set grows.
 
-## 사용자
-- 주요 사용자 집단.
-- 범위에 실질적인 영향을 주는 경우 보조 사용자 집단.
+## Customer Narrative
+- A contributor starts with a change request and needs to identify one canonical owner document without guesswork.
+- Without clear intent, contributors duplicate policy text across files, causing conflicting guidance and validator failures.
+- The expected experience is: read ordered governance docs, make targeted updates once, link elsewhere, and verify with deterministic scripts.
+- Non-negotiable expectation: a durable fact has one canonical owner and can be audited from repository history.
 
-## 목표
-- 제품이 달성해야 할 구체적인 결과.
+## Users
+- Primary: maintainers who author and review governance and feature specifications.
+- Primary: AI agents that generate or modify documentation under repository constraints.
+- Secondary: implementation engineers who rely on stable intent before building features.
 
-## 비목표
-- 범위 확장을 막기 위해 명시적으로 제외하는 결과.
+## Goals
+- Ensure every durable policy or decision can be traced to a single canonical document.
+- Reduce documentation rework by enforcing clear ownership boundaries and link-first writing.
+- Keep documentation workflows runnable in a minimal environment (python3 standard library).
+- Improve onboarding speed by maintaining stable reading and writing order.
 
-## 성공 지표
-- 선행 지표.
-- 후행 지표.
-- 가드레일 지표.
+## Non-Goals
+- Building an executable application or runtime platform in this repository.
+- Replacing governance docs with a generated docs website.
+- Capturing feature-level implementation details in governance documents.
+- Using package-manager-based tooling solely for docs validation.
 
-## 우선순위 테마
-- 기능 전반의 트레이드오프를 안내하는 소수의 핵심 테마.
+## Success Metrics
+- Leading: governance changes merge with all required docs validators passing on first review cycle.
+- Leading: each governance update includes metadata and canonical links without manual follow-up.
+- Lagging: ownership-conflict defects trend toward zero across monthly reviews.
+- Lagging: average review rounds per governance change decreases over time.
+- Guardrail: no governance document loses required sections or metadata keys.
+- Guardrail: canonical ownership remains singular for every durable fact.
 
-## 제약
-- 제품 방향에 영향을 주는 비즈니스, 법률, 운영, 시장 제약.
+## Priority Themes
+- Canonical ownership over convenience copying.
+- Deterministic verification over ad hoc interpretation.
+- Reusable governance templates over project-specific prose.
+- Human-plus-agent readability over verbose narrative.
 
-## 열린 질문
-- 아직 해결되지 않아 하위 스펙을 막고 있는 제품 질문.
+## Constraints
+- Repository remains docs-first until implementation scope is explicitly introduced.
+- Governance docs must stay in English and keep numbered path conventions.
+- Validation runtime is restricted to python3 standard library unless governance policy changes.
+- Changes must preserve backward readability for both human reviewers and AI agents.
+
+## Open Questions
+- None currently blocking downstream governance work.
