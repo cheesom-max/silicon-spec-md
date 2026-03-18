@@ -1,11 +1,11 @@
 # Runbook Template
 
 ## Purpose
-- Provide a repeatable operational procedure for a specific task or incident.
+- Provide a repeatable operational procedure that can be executed under normal conditions or incident pressure.
 
 ## Usage Order
-- Step 7: Write this when a repeatable operational procedure is needed.
-- Use it for work where real execution order matters, such as deploys, incident response, or recovery.
+- Step 9: add a runbook when repeatable execution steps are required.
+- Keep runbooks procedural and operational, not tutorial-like.
 
 ## Intended Audience
 - The people who actually carry out the procedure during normal operation or under pressure.
@@ -14,11 +14,12 @@
 - Product planning.
 - Architectural decision rationale.
 - Repository-wide engineering policy.
-- Long-form troubleshooting theory.
+- Long-form troubleshooting theory or conceptual onboarding.
 
 ## Canonical Scope
 - Trigger conditions.
 - Preconditions.
+- Signals to watch.
 - Execution steps.
 - Verification, recovery, and escalation.
 
@@ -26,7 +27,9 @@
 - When the operational procedure changes, a tool changes, or real execution exposes a gap.
 
 ## Canonical Links
-- Link the related ADR, feature spec, dashboard, and architecture docs.
+- Runbook index: `docs/07-runbooks/07-INDEX.md`.
+- ADR index: `docs/06-adrs/06-ADR-INDEX.md`.
+- Feature package chronology: `docs/04-features/<feature>/changes.md`.
 
 ## Trigger
 - What event or condition requires using this runbook?
@@ -37,10 +40,14 @@
 ## Required Access and Tools
 - List the required accounts, permissions, dashboards, and commands.
 
+## Signals to Watch
+- Which leading indicators confirm the procedure is on track?
+- Which failure signals require rollback, recovery, or escalation?
+
 ## Execution Metadata
 - What environment or scope does this procedure apply to?
 - What baseline state must be recorded before execution?
-- What signals must be checked during execution?
+- What evidence must be captured during and after execution?
 
 ## Procedure
 1. First step.
@@ -59,4 +66,4 @@
 ## Operational Feedback Loop
 - What observations must be recorded after running this runbook?
 - What repeated failure patterns should trigger a document or procedure update?
-- If follow-up changes are needed, which documents must also be updated? Example: feature spec, ADR, test strategy.
+- If follow-up changes are needed, which documents must also be updated? Example: feature spec, ADR, and `changes.md`.

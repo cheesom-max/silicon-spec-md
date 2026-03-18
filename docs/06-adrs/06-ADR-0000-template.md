@@ -1,51 +1,60 @@
 # ADR-0000: Title
 
 ## Purpose
-- Record one durable architectural decision.
+- Record one durable architecture decision and its lifecycle state.
 
 ## Usage Order
-- Step 6: Write this when a technical decision is expected to last.
-- Use it when the background of a decision is hard to preserve in a feature spec or architecture document alone.
+- Step 8: add an ADR when a long-lived technical decision appears.
+- Keep each ADR short, decision-focused, and durable over time.
 
 ## Intended Audience
-- Engineers and AI agents who need to understand why an architectural choice was made.
+- Engineers and AI agents who need the decision rationale and current lifecycle state.
 
 ## Out of Scope
 - Always-current architecture descriptions.
-- Feature behavior.
+- Feature behavior ownership.
 - Operational procedures.
 
 ## Canonical Scope
-- The context, decision, status, consequences, and alternatives for one durable decision.
+- Context, decision, lifecycle status, consequences, and supersession for one durable decision.
 
 ## Last Updated When
-- When the decision status changes or this record is superseded.
+- Decision state changes (`proposed`, `accepted`, `deprecated`, `superseded`).
+- Supersession links or impact metadata changes.
 
 ## Canonical Links
-- For the current system structure, see `docs/02-system-architecture.md`.
-- Link the related feature spec or runbook as needed.
+- ADR index: `docs/06-adrs/06-ADR-INDEX.md`.
+- System structure: `docs/02-system-architecture.md`.
+- Operational procedures affected by this decision: `docs/07-runbooks/07-INDEX.md`.
+- Feature chronology where rollout deltas are logged: `docs/04-features/<feature>/changes.md`.
 
 ## Status
-- Proposed | Accepted | Deprecated | Superseded
+- Allowed values: `proposed` | `accepted` | `deprecated` | `superseded`
+- Current status: `<status>`
+
+## Decision Date
+- YYYY-MM-DD
 
 ## Context
-- What forces, constraints, or problems led to this decision?
+- What forces, constraints, or problems require this decision?
 
 ## Decision
 - What was decided?
 
-## Execution Metadata
-- What scope is directly affected by this decision?
-- What prerequisites must be checked before applying it?
-- What key signals should be observed after it is applied?
+## Scope and Impact
+- Directly affected systems or boundaries.
+- Preconditions before applying this decision.
+- Key validation signals after applying this decision.
 
 ## Consequences
-- Positive consequences.
-- Negative consequences.
+- Positive effects.
+- Negative effects and trade-offs.
 - Follow-up work created by this decision.
 
 ## Alternatives Considered
-- What other options were reviewed, and why were they not chosen?
+- Other options and why they were not chosen.
 
-## Supersession Relationship
-- Link related ADRs when needed.
+## Supersession
+- Supersedes: `<ADR-id or none>`
+- Superseded by: `<ADR-id or none>`
+- Transition note: what must migrate and where progress is tracked.

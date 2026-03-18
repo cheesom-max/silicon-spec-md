@@ -1,3 +1,13 @@
+---
+doc_type: feature-spec
+status: draft
+owner: feature-authors
+audience: feature-authors-reviewers
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
+
 # Feature Spec Template
 
 ## Purpose
@@ -23,6 +33,16 @@
 - Acceptance criteria.
 - Affected areas and local risks.
 
+## Package Boundaries
+- This file is the only canonical owner of feature behavior and acceptance criteria.
+- Use sibling docs only for support context:
+  - `concept.md`: background and domain framing.
+  - `how-to.md`: contributor procedures.
+  - `reference.md`: stable lookup facts.
+  - `examples.md`: illustrative scenarios.
+  - `changes.md`: chronology and release-facing deltas.
+  - `known-issues.md`: unresolved constraints and workarounds.
+
 ## Last Updated When
 - When feature scope, behavior, acceptance criteria, or implementation approach changes materially.
 
@@ -30,7 +50,17 @@
 - For product intent, see `docs/01-product.md`.
 - For architectural context, see `docs/02-system-architecture.md`.
 - For repository-wide rules, see `docs/03-engineering-rules.md`.
+- For docs operations and review flow, see `docs/08-document-operations.md`.
+- For controlled vocabulary (`doc_type`, `status`), see `docs/09-glossary.md`.
 - If this feature depends on a long-lived decision, refer to the related ADR.
+
+## Supporting Documents
+- Concept context: `docs/04-features/<feature>/concept.md`
+- Contributor procedure: `docs/04-features/<feature>/how-to.md`
+- Feature reference: `docs/04-features/<feature>/reference.md`
+- Worked examples: `docs/04-features/<feature>/examples.md`
+- Change log: `docs/04-features/<feature>/changes.md`
+- Known issues: `docs/04-features/<feature>/known-issues.md`
 
 ## Problem
 - What problem does this feature solve?

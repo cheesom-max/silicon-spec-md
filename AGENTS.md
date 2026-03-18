@@ -6,7 +6,7 @@ Agents working here should treat the numbered files under `docs/` as the primary
 Do not assume an application, package manager, CI pipeline, or test harness exists unless it is added later.
 
 ## Current Repository Shape
-The repository currently contains only documentation templates and no executable source tree.
+The repository is docs-first with no executable application source tree, plus a repo-local documentation validator layer under `scripts/docs/`.
 - `docs/00-README.md`: documentation map and writing order
 - `docs/01-product.md`: product intent template
 - `docs/02-system-architecture.md`: system architecture template
@@ -15,22 +15,27 @@ The repository currently contains only documentation templates and no executable
 - `docs/05-test-strategy.md`: project-wide test strategy template
 - `docs/06-adrs/06-ADR-0000-template.md`: ADR template
 - `docs/07-runbooks/07-template.md`: runbook template
+- `docs/08-document-operations.md`: documentation operations governance
+- `docs/09-glossary.md`: canonical documentation vocabulary
+- `scripts/docs/`: documentation validation scripts
 
 ## Authoritative Reading Order
 When starting work, read documents in this order:
 1. `docs/00-README.md`
-2. `docs/01-product.md`
-3. `docs/02-system-architecture.md`
-4. `docs/03-engineering-rules.md`
-5. The relevant feature spec under `docs/04-features/`
-6. `docs/05-test-strategy.md` when verification expectations matter
-7. Relevant ADRs in `docs/06-adrs/`
-8. Relevant runbooks in `docs/07-runbooks/`
+2. `docs/09-glossary.md` for canonical governance vocabulary
+3. `docs/01-product.md`
+4. `docs/02-system-architecture.md`
+5. `docs/03-engineering-rules.md`
+6. The relevant feature spec under `docs/04-features/`
+7. `docs/05-test-strategy.md` when verification expectations matter
+8. `docs/08-document-operations.md` for documentation operating loop policy
+9. Relevant ADRs in `docs/06-adrs/`
+10. Relevant runbooks in `docs/07-runbooks/`
 
 If a fact belongs clearly to one file, update that file and link from others instead of duplicating content.
 
 ## Build, Lint, and Test Commands
-No repository-level build, lint, or test commands are configured today.
+Application/runtime build, lint, and test commands are not configured today.
 
 Observed status:
 - No `package.json`
@@ -41,25 +46,31 @@ Observed status:
 - No `justfile`
 - No ESLint, Prettier, Ruff, Biome, Jest, Vitest, or Pytest config
 
-Because of that, agents must not invent commands such as `npm test`, `pnpm lint`, `pytest`, `cargo test`, or `make test`.
+Because of that, agents must not invent application/runtime commands such as `npm test`, `pnpm lint`, `pytest`, `cargo test`, or `make test`.
+
+Documentation validation runtime policy:
+- Use `python3 standard library` only.
+- Do not add Node, npm, pnpm, Poetry, or other package-manager tooling only for docs validation.
 
 Use this guidance instead:
-- Build: `N/A` until a build tool is added
-- Lint: `N/A` until a linter or formatter is added
-- Full test suite: `N/A` until a test runner is added
-- Single test: unsupported until a test runner is added
+- Application/runtime build: `N/A` until a build tool is added
+- Application/runtime lint: `N/A` until a linter or formatter is added
+- Application/runtime full test suite: `N/A` until a test runner is added
+- Application/runtime single test: unsupported until a test runner is added
+- Documentation validation commands: present under `scripts/docs/`
+- Exact docs validator command set: `docs/05-test-strategy.md`
 
 If tooling is introduced later, update this file immediately with the exact commands.
 
 ## Single-Test Guidance
-There is currently no supported way to run a single test because there is no test harness in the repository.
+There is currently no supported way to run a single application/runtime test because there is no application/runtime test harness in the repository.
 If future work adds a runner, document all of the following in this file:
 - the full test command
 - the single-test command
 - one concrete example command
 - any required environment setup
 
-Until then, do not claim that a single-test workflow exists.
+Until then, do not claim that an application/runtime single-test workflow exists.
 
 ## Safe Verification Commands
 These commands are safe for repository inspection today:
@@ -74,7 +85,7 @@ The only established conventions come from the current docs set.
 Agents should preserve these conventions unless the repository intentionally changes direction.
 
 ### Language
-- Existing numbered docs are written in English.
+- Canonical governance documents are written in English.
 - This root `AGENTS.md` is in English because it is aimed at general-purpose coding agents.
 - When editing existing docs, preserve the dominant language of the file.
 
@@ -113,6 +124,8 @@ When code is introduced, prefer explicit failures, actionable messages, and no s
 - `docs/05-test-strategy.md` owns project-wide verification expectations
 - `docs/06-adrs/` owns durable decision records
 - `docs/07-runbooks/` owns operational procedures
+- `docs/08-document-operations.md` owns docs-system loop cadence, review roles, quality bars, WIP limits, freshness SLA, and stop conditions
+- `docs/09-glossary.md` owns canonical documentation vocabulary and controlled terms
 
 If the same content can live in multiple places, pick the single most authoritative document and link to it.
 
@@ -122,6 +135,8 @@ If the same content can live in multiple places, pick the single most authoritat
 - When renaming docs, update all internal path references in the docs set.
 - Do not create extra framework-specific docs unless the repo actually gains that framework.
 - Keep templates reusable; avoid filling them with project-specific implementation details unless asked.
+- Keep the governance control plane in numbered docs and keep delivery taxonomy under feature folders.
+- Do not introduce docs websites or external hosted docs dependencies unless explicitly added as project scope.
 
 ## Cursor and Copilot Rules
 No Cursor rules were found.
