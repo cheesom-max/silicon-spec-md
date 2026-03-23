@@ -13,8 +13,13 @@ Ship clarity before code.
 ## What you get
 
 - A structured document system for product intent, system shape, engineering rules, feature behavior, verification strategy, durable decisions, and operational runbooks.
-- Numbered templates that help contributors start with clear ownership boundaries instead of ad hoc documentation.
-- A repository shape that stays useful even when the product is still pre-code.
+- A layered docs model that keeps governance documents separate from feature delivery packages.
+- Repo-local documentation validation scripts that help the docs stay consistent without requiring an application runtime or docs website.
+
+## Docs model
+
+- Layer 1: governance control plane in the numbered canonical docs.
+- Layer 2: feature delivery packages under `docs/04-features/<feature>/` with `04-spec.md`, `concept.md`, `how-to.md`, `reference.md`, `examples.md`, `changes.md`, and `known-issues.md`.
 
 ## Who it is for
 
@@ -29,4 +34,4 @@ Ship clarity before code.
 
 ## Current status
 
-This repository currently contains documentation templates only. There is no executable application code, package manager configuration, or build, lint, or test tooling yet.
+This repository currently contains documentation templates plus repo-local documentation validation scripts. There is no executable application code or application/runtime build pipeline. For the canonical docs map, start with `docs/00-README.md`. For exact docs validator commands, see `docs/05-test-strategy.md`.

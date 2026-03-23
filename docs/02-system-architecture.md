@@ -1,60 +1,99 @@
-# System Architecture Template
+---
+doc_type: governance
+status: active
+owner: architecture-and-docs-governance
+audience: engineers-architects-reviewers
+last_reviewed: 2026-03-18
+canonical: true
+supersedes: none
+---
+
+# System Architecture
 
 ## Purpose
-- Describe the stable technical structure of the system.
+- Describe the stable technical structure of this documentation system.
+- Define architecture boundaries so policy, behavior, and verification concerns remain separated.
 
 ## Usage Order
-- Step 2: Write this after `docs/01-product.md` is organized.
-- Define it before starting feature-level design.
+- Step 2: Read and update this document after product intent is clarified in `docs/01-product.md`.
+- Use this as architectural context before changing repository-wide rules or feature specs.
 
 ## Intended Audience
-- Engineers and AI agents who need architectural context before writing or reviewing feature specs.
+- Engineers, maintainers, and AI agents who need system-shape context before editing specs.
 
 ## Out of Scope
-- Product strategy.
-- Repository-wide coding rules.
-- Step-by-step operational procedures.
-- The full history of decisions.
+- Product intent, goals, and user outcomes (owned by `docs/01-product.md`).
+- Repository-wide rules and constraints (owned by `docs/03-engineering-rules.md`).
+- Verification gates and test evidence policy (owned by `docs/05-test-strategy.md`).
+- Operational cadence and loop governance (owned by `docs/08-document-operations.md`).
 
 ## Canonical Scope
-- System boundaries.
-- Major components.
-- Data and control flow.
-- External dependencies.
-- Stable technical constraints.
+- System boundary for docs authoring, governance, and validation runtime.
+- Major architectural components and interfaces across governance and delivery layers.
+- Data and control flow from authoring input to validated documentation output.
+- External dependency boundaries and non-negotiable technical constraints.
 
 ## Last Updated When
-- When the stable system structure changes, a major dependency changes, or component boundaries change.
+- When component boundaries, runtime assumptions, or interface contracts change.
 
 ## Canonical Links
-- For product intent, see `docs/01-product.md`.
-- For repository-wide rules, see `docs/03-engineering-rules.md`.
-- For decision records, see `docs/06-adrs/06-ADR-0000-template.md`.
+- `docs/00-README.md` for canonical document map and taxonomy.
+- `docs/01-product.md` for product intent and outcomes.
+- `docs/03-engineering-rules.md` for repository-wide engineering policy.
+- `docs/05-test-strategy.md` for verification expectations.
+- `docs/08-document-operations.md` for operating cadence and review loop policy.
+- `docs/06-adrs/06-ADR-0000-template.md` for durable decision records.
 
 ## System Context
-- What system are we building, and what is outside its boundary?
+- The system is a docs-first specification workspace that produces authoritative governance and feature documents.
+- In-bound scope: numbered governance docs, feature-package specs, and python3-based validation scripts.
+- Out-of-bound scope: application runtime services, production infrastructure, and user-facing software deployment.
 
 ## Core Components
-- Summarize the major components and the responsibility of each component.
+- Governance control plane (`docs/00` to `docs/09`): durable policy and ownership boundaries.
+- Delivery package taxonomy (`docs/04-features/<feature>/`): feature behavior and supporting artifacts.
+- Validation layer (`scripts/docs/`): deterministic policy checks for structure, ownership, and metadata.
+- Evidence layer (`.sisyphus/evidence/`): command output traces used for review and audit.
 
 ## Boundaries and Interfaces
-- Describe the important boundaries between layers, services, and modules.
+- Product intent interface: `docs/01-product.md` provides goals and constraints consumed by architecture and feature specs.
+- Architecture interface: this document defines stable system shape consumed by engineering rules and feature specs.
+- Rules interface: `docs/03-engineering-rules.md` defines required/forbidden patterns enforced across docs.
+- Verification interface: `docs/05-test-strategy.md` defines what must be validated and evidenced for changes.
+- Operations interface: `docs/08-document-operations.md` defines loop cadence and review role workflow.
 
 ## Data Flow
-- Explain how data moves through the system.
+- Input: change request or authoring task defines intended documentation update.
+- Transformation: contributor edits canonical owner docs first, then updates non-canonical links.
+- Validation: python3 scripts parse markdown structure and metadata to detect policy violations.
+- Output: passing validator output and evidence artifacts feed review and merge decisions.
 
 ## Control Flow
-- Explain how requests, jobs, and events move through the system.
+- Trigger: a governance or feature change request enters authoring workflow.
+- Control gate 1: canonical owner is selected before edits proceed.
+- Control gate 2: required validators run and produce deterministic pass/fail output.
+- Control gate 3: review roles assess content, structure, and freshness before closure.
 
 ## External Dependencies
-- List the third-party systems, platforms, and infrastructure the system depends on.
+- Python 3 standard library runtime for docs validation scripts.
+- Git repository history for traceability and reviewability.
+- Local CLI tooling for executing validation commands.
+- No package-manager dependency is required for governance validation.
 
 ## Technical Constraints
-- Record stable technical limits, invariants, and deployment assumptions.
+- Canonical governance docs are plain Markdown files with stable numbered paths.
+- Substantive governance docs must include required YAML metadata keys.
+- Validators must run without network dependency and without third-party Python packages.
+- Ownership rules require one canonical source per durable fact.
 
 ## Current-State Decisions
-- Summarize important current architectural decisions.
-- Do not rewrite the full decision history; link to ADRs instead.
+- Decision: maintain a two-layer docs system (governance control plane and feature delivery taxonomy).
+- Decision: keep docs validation in python3 standard library for portability.
+- Decision: enforce canonical ownership via numbered governance docs and link-first referencing.
+- Decision: keep operational loop policy in `docs/08-document-operations.md` instead of duplicating it here.
 
 ## Risk Areas and Hotspots
-- Identify the architectural areas that future feature specs should treat with extra care.
+- Boundary drift between architecture content and repository-wide rules.
+- Duplication of operating-loop policy between this document and `docs/08-document-operations.md`.
+- Metadata inconsistency that can break ownership and freshness validation scripts.
+- Feature-package documents accidentally absorbing governance-level decisions.
