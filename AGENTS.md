@@ -2,32 +2,20 @@
 
 ## Purpose
 This repository is currently a docs-first specification workspace.
-Agents working here should treat the numbered files under `docs/` as the primary source of truth.
+Agents working here should treat the numbered files under `docs/` as the primary source of truth for specification content.
+For numbered-doc ownership and reading order, follow `docs/00-README.md`.
+This file defines agent-specific operating rules and repository handling constraints.
 Do not assume an application, package manager, CI pipeline, or test harness exists unless it is added later.
 
 ## Current Repository Shape
 The repository currently contains only documentation templates and no executable source tree.
-- `docs/00-README.md`: documentation map and writing order
-- `docs/01-product.md`: product intent template
-- `docs/02-system-architecture.md`: system architecture template
-- `docs/03-engineering-rules.md`: repository-wide engineering rules template
-- `docs/04-features/04-_template/04-spec.md`: feature spec template
-- `docs/05-test-strategy.md`: project-wide test strategy template
-- `docs/06-adrs/06-ADR-0000-template.md`: ADR template
-- `docs/07-runbooks/07-template.md`: runbook template
+See `docs/00-README.md` for the canonical numbered-doc map, ownership boundaries, and reading order.
 
-## Authoritative Reading Order
-When starting work, read documents in this order:
-1. `docs/00-README.md`
-2. `docs/01-product.md`
-3. `docs/02-system-architecture.md`
-4. `docs/03-engineering-rules.md`
-5. The relevant feature spec under `docs/04-features/`
-6. `docs/05-test-strategy.md` when verification expectations matter
-7. Relevant ADRs in `docs/06-adrs/`
-8. Relevant runbooks in `docs/07-runbooks/`
-
-If a fact belongs clearly to one file, update that file and link from others instead of duplicating content.
+## Required Starting Point
+When starting work:
+1. Read `docs/00-README.md` first.
+2. Follow the numbered-doc reading order defined there.
+3. If a fact belongs clearly to one file, update that file and link from others instead of duplicating content.
 
 ## Build, Lint, and Test Commands
 No repository-level build, lint, or test commands are configured today.
@@ -105,19 +93,14 @@ Still, future agents should prefer explicit types and avoid type suppression onc
 There is no runtime code yet, so there are no project-specific error patterns.
 When code is introduced, prefer explicit failures, actionable messages, and no silent swallowing of errors.
 
-### Source-of-Truth Rules
-- `docs/01-product.md` owns product intent
-- `docs/02-system-architecture.md` owns system shape
-- `docs/03-engineering-rules.md` owns repository-wide rules
-- `docs/04-features/<feature>/04-spec.md` owns feature behavior and acceptance
-- `docs/05-test-strategy.md` owns project-wide verification expectations
-- `docs/06-adrs/` owns durable decision records
-- `docs/07-runbooks/` owns operational procedures
-
-If the same content can live in multiple places, pick the single most authoritative document and link to it.
+### Documentation Ownership Boundaries
+- `docs/00-README.md` owns numbered-doc ownership boundaries and reading order.
+- `AGENTS.md` owns agent-specific operating rules, command constraints, and repository handling guidance.
+- `README.md` is the public repository landing page and may summarize the repo, but it must not redefine numbered-doc ownership or reading order.
+- If the same content can live in multiple places, pick the single most authoritative document and link to it.
 
 ## Editing Expectations for Agents
-- Read `docs/00-README.md` before restructuring docs.
+- Read `docs/00-README.md` before restructuring docs or changing document ownership/order.
 - Preserve numeric ordering in filenames and folders.
 - When renaming docs, update all internal path references in the docs set.
 - Do not create extra framework-specific docs unless the repo actually gains that framework.
